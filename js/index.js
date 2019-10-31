@@ -76,3 +76,15 @@ ps[2].textContent = siteContent["contact"]["email"];
 
 let footer = document.getElementsByTagName("footer")[0];
 footer.querySelector("p").textContent = siteContent["footer"]["copyright"];
+
+// task 3
+
+let new1 = document.createElement("a");
+let new2 = document.createElement("a");
+new1.textContent = "Google";
+new1.setAttribute("href", "https://google.com");
+new2.textContent = "Bing";
+new2.setAttribute("href", "https://bing.com");
+nav.prepend(new1);
+nav.append(new2);
+nav.querySelectorAll("a").forEach(a => a.style.color = "green");
