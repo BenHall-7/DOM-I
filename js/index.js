@@ -39,4 +39,66 @@ const siteContent = {
 
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+logo.setAttribute('src', siteContent["nav"]["img-src"]);
+
+// task 1
+
+let cta_img = document.getElementById("cta-img");
+cta_img.setAttribute('src', siteContent["cta"]['img-src']);
+
+let middle_img = document.getElementById("middle-img");
+middle_img.setAttribute('src', 'img/mid-page-accent.jpg');
+
+// task 2
+
+let nav = document.getElementsByTagName("nav")[0];
+let nav_a = Array.from(nav.getElementsByTagName("a"));
+console.log(nav_a);
+nav_a.forEach((a, i) => {a.textContent = siteContent["nav"]["nav-item-" + (i + 1)]})
+
+let cta_text = document.getElementsByClassName("cta-text")[0];
+cta_text.querySelector("h1").textContent = siteContent["cta"]["h1"];
+cta_text.querySelector("button").textContent = siteContent["cta"]["button"];
+
+const sections = ["features", "about", "services", "product", "vision"];
+let text_sections = Array.from(document.getElementsByClassName("text-content"));
+text_sections.forEach((ts, index) => {
+  ts.querySelector("h4").textContent = siteContent["main-content"][sections[index] + "-h4"];
+  ts.querySelector("p").textContent = siteContent["main-content"][sections[index] + "-content"];
+});
+
+let contact = document.getElementsByClassName("contact")[0];
+contact.querySelector("h4").textContent = siteContent["contact"]["contact-h4"];
+let ps = contact.getElementsByTagName("p");
+ps[0].textContent = siteContent["contact"]["address"];
+ps[1].textContent = siteContent["contact"]["phone"];
+ps[2].textContent = siteContent["contact"]["email"];
+
+let footer = document.getElementsByTagName("footer")[0];
+footer.querySelector("p").textContent = siteContent["footer"]["copyright"];
+
+// task 3
+
+let new1 = document.createElement("a");
+let new2 = document.createElement("a");
+new1.textContent = "Google";
+new1.setAttribute("href", "https://google.com");
+new2.textContent = "Bing";
+new2.setAttribute("href", "https://bing.com");
+nav.prepend(new1);
+nav.append(new2);
+nav.querySelectorAll("a").forEach(a => a.style.color = "green");
+
+let button = document.getElementsByTagName("button")[0];
+let light_mode;
+let dark_mode;
+light_mode = () => {
+  document.getElementsByTagName("body")[0].style.background = "unset";
+  button.onclick = dark_mode;
+};
+dark_mode = () => {
+  document.getElementsByTagName("body")[0].style.background = "#303030";
+  button.onclick = light_mode;
+};
+
+button.onclick = dark_mode;
