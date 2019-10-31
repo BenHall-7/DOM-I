@@ -51,3 +51,28 @@ middle_img.setAttribute('src', 'img/mid-page-accent.jpg');
 
 // task 2
 
+let nav = document.getElementsByTagName("nav")[0];
+let nav_a = Array.from(nav.getElementsByTagName("a"));
+console.log(nav_a);
+nav_a.forEach((a, i) => {a.textContent = siteContent["nav"]["nav-item-" + (i + 1)]})
+
+let cta_text = document.getElementsByClassName("cta-text")[0];
+cta_text.querySelector("h1").textContent = siteContent["cta"]["h1"];
+cta_text.querySelector("button").textContent = siteContent["cta"]["button"];
+
+const sections = ["features", "about", "services", "product", "vision"];
+let text_sections = Array.from(document.getElementsByClassName("text-content"));
+text_sections.forEach((ts, index) => {
+  ts.querySelector("h4").textContent = siteContent["main-content"][sections[index] + "-h4"];
+  ts.querySelector("p").textContent = siteContent["main-content"][sections[index] + "-content"];
+});
+
+let contact = document.getElementsByClassName("contact")[0];
+contact.querySelector("h4").textContent = siteContent["contact"]["contact-h4"];
+let ps = contact.getElementsByTagName("p");
+ps[0].textContent = siteContent["contact"]["address"];
+ps[1].textContent = siteContent["contact"]["phone"];
+ps[2].textContent = siteContent["contact"]["email"];
+
+let footer = document.getElementsByTagName("footer")[0];
+footer.querySelector("p").textContent = siteContent["footer"]["copyright"];
