@@ -88,3 +88,17 @@ new2.setAttribute("href", "https://bing.com");
 nav.prepend(new1);
 nav.append(new2);
 nav.querySelectorAll("a").forEach(a => a.style.color = "green");
+
+let button = document.getElementsByTagName("button")[0];
+let light_mode;
+let dark_mode;
+light_mode = () => {
+  document.getElementsByTagName("body")[0].style.background = "unset";
+  button.onclick = dark_mode;
+};
+dark_mode = () => {
+  document.getElementsByTagName("body")[0].style.background = "#303030";
+  button.onclick = light_mode;
+};
+
+button.onclick = dark_mode;
